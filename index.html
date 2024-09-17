@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Toggle - Historical Places in India</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            background-color: rgb(235, 215, 188); 
+        }
+
+        #container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            position: relative;
+        }
+
+        img {
+            height: 100vh;
+            transition: transform 0.5s ease;
+            position: absolute;
+        }
+
+        .image {
+            display: none;
+            transition: transform 0.5s ease;
+        }
+
+        #i1 {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        #toggleButton, .toggleButton {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            background-color: #6A3F2B;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+        }
+
+        .text {
+            display: none;
+            position: absolute;
+            bottom: 10px;
+            left: 530px;
+            color: black;
+            background-color: rgb(235, 215, 188); 
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+        }
+
+        #s {
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+            color: #cc4c0b;
+            font-size: 50px;
+        }
+        #img{
+            width: 50px;
+            height: 50px;
+            position:absolute;
+            top:2000px;
+        }
+      #container .image{
+            width: 400px;
+            height: 400px;
+            position:absolute;
+            top:20px;
+            right:100px;
+           
+        }
+       #container .text {
+            position: absolute;
+            right: 30px;
+            top: 430px;
+            left:1000px;
+        }
+        .text.show {
+            display: block;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+        #n1 {
+    width: 100px;  /* Adjusted width for better centering */
+    height: 30px;  /* Adjusted height for better centering */
+    position: absolute;
+    left: 1250px;
+    top: 680px;
+    background-color: brown;
+    color: blanchedalmond;
+    padding: 1px 2px;   /* Padding to provide space inside the button */
+    text-align: center;  /* Center the text horizontally */
+    line-height: 30px;  /* Center the text vertically */
+    font-size: 16px;  /* Adjust font size */
+    border: none;  /* Remove border */
+    border-radius: 12px;  /* Rounded corners */
+    cursor: pointer;  /* Change cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* Smooth transition */
+    
+}
+
+#n1:hover {
+    background-color: #45a049;  /* Darker green on hover */
+    transform: scale(1.1);  /* Slightly enlarge the button on hover */
+}
+    
+
+        #n2 {
+    width: 100px;  /* Adjusted width for better centering */
+    height: 30px;  /* Adjusted height for better centering */
+    position: absolute;
+    left: 1380px;
+    top: 680px;
+    background-color: brown;
+    color: blanchedalmond;
+    padding: 1px 10px;  /* Padding to provide space inside the button */
+    text-align: center;  /* Center the text horizontally */
+    line-height: 30px;  /* Center the text vertically */
+    font-size: 16px;  /* Adjust font size */
+    border: none;  /* Remove border */
+    border-radius: 12px;  /* Rounded corners */
+    cursor: pointer;  /* Change cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* Smooth transition */
+}
+
+#n2:hover {
+    background-color: #45a049;  /* Darker green on hover */
+    transform: scale(1.1);  /* Slightly enlarge the button on hover */
+}
+.button a {
+    color: rgb(255, 217, 0);
+    text-decoration: none;
+
+}
+
+.back {
+    width: 100px;  /* Adjusted width for better centering */
+    height: 30px;  /* Adjusted height for better centering */
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    background-color: brown;
+    color: blanchedalmond;
+    padding: 1px 2px;   /* Padding to provide space inside the button */
+    text-align: center;  /* Center the text horizontally */
+    line-height: 30px;  /* Center the text vertically */
+    font-size: 16px;  /* Adjust font size */
+    border: none;  /* Remove border */
+    border-radius: 12px;  /* Rounded corners */
+    cursor: pointer;  /* Change cursor on hover */
+    transition: background-color 0.3s ease, transform 0.3s ease;  /* Smooth transition */
+    
+}
+.back a{
+    color: rgb(255, 217, 0);
+    text-decoration: none;
+
+}
+
+.back:hover {
+    background-color: #45a049;  /* Darker green on hover */
+    transform: scale(1.1);  /* Slightly enlarge the button on hover */
+}
+#toggleButton2, #toggleButton1,#toggleButton3,#toggleButton4,#toggleButton5,#toggleButton6,#toggleButton7,#toggleButton8,#toggleButton9 {
+    padding: 5px 5px;
+    font-size: 5px; /* Adjusted for better visibility */
+    background-color: #6A3F2B;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 60px;
+    height: 20px;
+    text-align: center; /* Centers text horizontally */
+    line-height: 5px; /* Matches button height to center text vertically */
+}
+
+#toggleButton2:hover, #toggleButton1:hover,#toggleButton3:hover, #toggleButton4:hover ,#toggleButton5:hover, #toggleButton6:hover ,#toggleButton7:hover, #toggleButton8:hover ,#toggleButton9:hover  {
+    background-color: #8B4513;
+    color: yellow; /* Text color on hover */
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+    line-height: 5px;
+    width: 140px;
+    height: 30px;
+    font-size: 20px; /* Keeps vertical alignment on hover */
+}
+#toggleButton2, #toggleButton1,#toggleButton3,#toggleButton4,#toggleButton5,#toggleButton6,#toggleButton7,#toggleButton8,#toggleButton9 {
+    padding: 5px 5px;
+    font-size: 5px; /* Adjusted for better visibility */
+    background-color: #6A3F2B;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 60px;
+    height: 20px;
+    text-align: center; /* Centers text horizontally */
+    line-height: 5px; /* Matches button height to center text vertically */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+#toggleButton2:hover, #toggleButton1:hover,#toggleButton3:hover, #toggleButton4:hover ,#toggleButton5:hover, #toggleButton6:hover ,#toggleButton7:hover, #toggleButton8:hover ,#toggleButton9:hover  {
+    background-color: #8B4513;
+    color: yellow; /* Text color on hover */
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+    line-height: 5px;
+    width: 140px;
+    height: 30px;
+    font-size: 20px; /* Keeps vertical alignment on hover */
+}
+.text {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Controls fade-out */
+}
+
+.text.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Controls fade-in */
+}
+
+
+    
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="i1" src="IMG_20240902_090546.jpg" alt="Main Image">
+        
+        <!-- 9 buttons with their corresponding images and texts -->
+        <!-- 9 buttons with their corresponding images and state names -->
+<button id="toggleButton1" class="toggleButton" style="left: 580px; top: 460px;" onclick="toggleImage(1)">MAHARASHTRA</button>
+<button id="toggleButton2" class="toggleButton" style="left: 560px; top: 280px;" onclick="toggleImage(2)">RAJASTHAN</button>
+<button id="toggleButton3" class="toggleButton" style="left: 620px; top: 360px;" onclick="toggleImage(3)">MADHYAPRADESH</button>
+<button id="toggleButton4" class="toggleButton" style="left: 700px; top: 280px;" onclick="toggleImage(4)">UTTARPRADESH</button>
+<button id="toggleButton5" class="toggleButton" style="left: 610px; top: 600px;" onclick="toggleImage(5)">KARNATAKA</button>
+<button id="toggleButton6" class="toggleButton" style="left: 520px; top: 350px;" onclick="toggleImage(6)">GUJURAT</button>
+<button id="toggleButton7" class="toggleButton" style="left: 710px; top: 360px;" onclick="toggleImage(7)">MADHYAPRADESH</button>
+<button id="toggleButton8" class="toggleButton" style="left: 610px; top: 210px;" onclick="toggleImage(8)">PANJAB</button>
+<button id="toggleButton9" class="toggleButton" style="left: 850px; top: 350px;" onclick="toggleImage(9)">WESTBANGAL</button>
+
+
+        <!-- Corresponding images -->
+        <img id="img1" class="image" src="IMG_20240831_235325_543 (1).jpg" alt="SHIVAJI" >
+        <img id="img2" class="image" src="https://i.pinimg.com/736x/c6/06/c4/c606c4d33fa630926323262e1a4c4195.jpg" alt="Red Fort">
+        <img id="img3" class="image" src="https://images1.dnaindia.com/images/DNA-EN/900x1600/2023/7/12/1689173837256_tarabai.jpg" alt="Qutub Minar">
+        <img id="img4" class="image" src="https://i.pinimg.com/564x/23/c1/46/23c146f1a587358e355c0e793fe0295f.jpg" alt="Ajanta Caves">
+        <img id="img5" class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhAs5COlU0npz4z_dCWNOkJ8xuI4bDnSPgBxhFWIYe28cA6EtxNonJ1QUwv-s4931FdbE&usqp=CAU" alt="Hampi">
+        <img id="img6" class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTb3D1fRWfY73suJ_V1-aqpGEO50R9yeHhRmw&s" alt="Khajuraho Temples">
+        <img id="img7" class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1r14-o0SY4t1rtESDf5nU_m1a9lXlZ6q2jw&s" alt="Fatehpur Sikri">
+        <img id="img8" class="image" src="https://i.pinimg.com/474x/74/24/eb/7424eb40445fdad69e972c90af8d6a4a.jpg" alt="Jaisalmer Fort">
+        <img id="img9" class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv8o1Ea5dVlrTzstRRkBXdvJXYH1zD-A8-gw&s" alt="Konark Sun Temple">
+
+        <p id="text1" class="text">
+            <b id="s"> Shivaji Maharaj</b><br>
+            <em>Chhatrapati Shivaji Maharaj was a revered Maratha warrior king and the founder of the Maratha Empire in western India. Born on February 19, 1630, in Shivneri Fort, he was the son of Shahaji Bhosale and Jijabai. Shivaji Maharaj is renowned for his innovative military tactics, which included the use of guerilla warfare to challenge the dominant Mughal Empire and other regional powers. He established a competent administrative system and was a progressive ruler who promoted the welfare of his people, irrespective of caste or creed.</em><br>
+            <em>Shivaji Maharaj was also known for his naval prowess, creating a formidable navy to protect the coastline and trade routes. He crowned himself as Chhatrapati (sovereign) in 1674, establishing a legacy of leadership and governance. His policies were forward-thinking, including the protection of Hindu temples and promotion of Marathi culture and language. He implemented a system of forts along the western coast, known as the "Sivaji's forts," to defend against external threats. Shivaji Maharaj's reign is celebrated for its emphasis on justice, equitable administration, and military strategy.</em><br>
+            
+        </p>
+        
+        
+        <p id="text2" class="text">
+            <b id="s">Maharana Pratap</b><br>
+            <em>Maharana Pratap Singh I, born on May 9, 1540, was a valiant Rajput king of Mewar, known for his unwavering resistance against the Mughal Empire. He ascended the throne in 1572 and is celebrated for his fierce resistance to Mughal domination, particularly during the Battle of Haldighati in 1576. Despite facing overwhelming odds, Maharana Pratap's determination and valor were remarkable in defending his kingdom.</em><br>
+            <em>He was born to Rana Udai Singh II and Maharani Jaiwanta Bai, and his early years were marked by his training in military skills and administration. Maharana Pratap’s military strategies were innovative, including his use of guerilla tactics in the rugged terrain of Mewar. His refusal to submit to Mughal authority and his commitment to preserving the independence of his kingdom are key aspects of his legacy.</em><br>
+            
+        </p>
+        <p id="text3" class="text">
+            <b id="s">Lakshmi Bai</b><br>
+            <em>Lakshmi Bai, the Rani of Jhansi, was a prominent figure in the Indian Rebellion of 1857 against British rule. Born on November 19, 1828, she became the queen of Jhansi at a young age after marrying Raja Gangadhar Rao. Her bravery and leadership during the uprising made her a national hero.</em><br>
+            <em>After the death of her husband in 1853, the British East India Company refused to recognize her adopted son as the heir, leading to the annexation of Jhansi. Lakshmi Bai became a central figure in the rebellion against British forces, leading her troops with remarkable courage and strategic acumen.</em><br>
+            <em>She played a crucial role in the defense of Jhansi during the Siege of Jhansi in 1857, a battle marked by intense combat and significant loss. Her resistance against the British forces was notable for its determination and resilience, even though Jhansi eventually fell to the British.</em><br>
+           
+        </p>
+        
+        <p id="text4" class="text">
+            <b id="s">RANI Lakshmi Bai</b><br>
+            <em>Lakshmi Bai, the Rani of Jhansi, was a prominent figure in the Indian Rebellion of 1857 against British rule. Born on November 19, 1828, she became the queen of Jhansi at a young age after marrying Raja Gangadhar Rao. Her bravery and leadership during the uprising made her a national hero.</em><br>
+            <em>After the death of her husband in 1853, the British East India Company refused to recognize her adopted son as the heir, leading to the annexation of Jhansi. Lakshmi Bai became a central figure in the rebellion against British forces, leading her troops with remarkable courage and strategic acumen.</em><br>
+            <em>She played a crucial role in the defense of Jhansi during the Siege of Jhansi in 1857, a battle marked by intense combat and significant loss. Her resistance against the British forces was notable for its determination and resilience, even though Jhansi eventually fell to the British.</em><br>
+            
+        </p>
+        <p id="text5" class="text">
+            <b id="s">Krishna Deva Raya</b><br>
+            <em>Krishna Deva Raya was one of the most renowned rulers of the Vijayanagara Empire, reigning from 1509 to 1529. His rule is celebrated for its military conquests, administrative reforms, and cultural patronage. Born in 1509, he ascended the throne after the death of his father, Narasimha Raya II.</em><br>
+            <em>Under Krishna Deva Raya’s leadership, the Vijayanagara Empire reached its zenith, expanding its territories significantly through successful military campaigns against neighboring sultanates and kingdoms. His reign is often considered a golden period in South Indian history.</em><br>
+            <em>He is known for his strong administrative skills and reforms, which helped stabilize and enhance the economic prosperity of his empire. Krishna Deva Raya was a patron of art and literature, and his court was graced by renowned scholars and poets like Allasani Peddana, Tenali Raman, and others.</em><br>
+            <em>The famous Telugu literary work, "Amuktamalyada," was written during his reign, showcasing his deep engagement with and support for literary and cultural activities. His court was a hub of learning and cultural exchange, fostering a vibrant environment for creativity and intellectual growth.</em><br>
+          
+        </p>
+        
+        <p id="text6" class="text">
+            <b id="s">Mahatma Gandhi</b><br>
+            <em>Mahatma Gandhi, also known as Mohandas Karamchand Gandhi, was a pivotal leader in the Indian independence movement against British rule. Born on October 2, 1869, in Porbandar, Gujarat, he is widely recognized for his philosophy of nonviolent resistance, or Satyagraha, which he used to challenge and dismantle colonial rule.</em><br>
+            <em>Gandhi’s approach to resistance involved peaceful protests, civil disobedience, and noncooperation with the British authorities. His leadership in various movements, including the Salt March of 1930, demonstrated his commitment to achieving justice and equality through nonviolent means.</em><br>
+            <em>He was deeply influenced by various philosophical and religious traditions, including Hinduism, Jainism, and the teachings of Leo Tolstoy and Henry David Thoreau. His ideology emphasized truth, nonviolence, and self-reliance, principles that became central to his campaigns for social and political change.</em><br>
+            
+        </p>
+        
+        
+        
+        <p id="text7" class="text">
+            <b id="s">Raja Dhol</b><br>
+            <em>Raja Dhol is a legendary figure from Bengali folklore, known for his reputed valor and leadership. According to local legends, he was a king who ruled over a region in Bengal and is often depicted as a symbol of resistance against invaders. His stories are interwoven with themes of bravery and justice. Raja Dhol's tales are celebrated in various folk songs and narratives, highlighting his role in defending his kingdom and people. Although historical records about him are scarce, his legend continues to be a significant part of regional cultural heritage. His legacy is preserved through oral traditions and regional storytelling.</em>
+        </p>
+        
+        
+        <p id="text8" class="text">
+            <b id="s">GURU GOBIND SINGH</b><br>
+            <em>Guru Gobind Singh Ji was the tenth Sikh Guru, who played a crucial role in the development and consolidation of Sikhism. Born in 1666, he was the last of the ten Sikh Gurus and is known for founding the Khalsa in 1699, a collective body of initiated Sikhs who are bound by a code of conduct. Guru Gobind Singh Ji's leadership was marked by his emphasis on spiritual and temporal authority, and he led the Sikhs through a period of military conflict against Mughal oppression. He also contributed to the Sikh scriptures by dictating the Dasam Granth, a sacred text in Sikhism.</em>
+        </p>
+        <p id="text9" class="text">
+            <b id="s">SUBHAS CHANDRA BOSE</b><br>
+            <em>Subhas Chandra Bose was a prominent leader in the Indian independence movement against British rule. Born in 1897, he was a key figure in the Indian National Congress and later formed the Indian National Army (INA) to fight against the British. Known for his radical approach and leadership, Bose sought to liberate India through armed struggle and was instrumental in galvanizing support from other nations, including Japan, to aid India's freedom struggle. His leadership and efforts made him a symbol of resistance and patriotism in Indian history. Bose's legacy continues to inspire generations in India and beyond.</em>
+        </p>
+        
+        
+    </div>
+    <div class="button">
+        <button id="n1"><a href="index.html">BACK</button></a>
+        <button id="n2"><a href="#">NEXT</button></a>
+    
+    </div>
+    <div class="back">
+        <a href="index.html">HOME</a>
+    </div>
+    <script>
+
+
+function toggleImage(index) {
+    const img1 = document.getElementById('i1');
+    
+    for (let i = 1; i <= 9; i++) {
+        let img = document.getElementById(`img${i}`);
+        let text = document.getElementById(`text${i}`);
+        let button = document.getElementById(`toggleButton${i}`);
+
+        if (i === index) {
+            if (img.style.display === 'none' || img.style.display === '') {
+                img.style.display = 'block';
+                img.style.transform = 'scale(1.1)'; // Add some scale to the image for a zoom effect
+                img1.style.transform = 'translateX(-100%)'; // Move main image to the left
+
+                // Hide all buttons when one button is clicked
+                hideAllButtons();
+                
+                text.classList.add('show'); // Show the associated text
+            } else {
+                img.style.display = 'none';
+                img.style.transform = 'scale(1)';
+                img1.style.transform = 'translateX(-50%)'; // Return main image to the center
+
+                // Show all buttons when the image is hidden again
+                showAllButtons();
+
+                text.classList.remove('show'); // Hide the associated text
+            }
+        } else {
+            img.style.display = 'none';
+            img.style.transform = 'scale(1)';
+            text.classList.remove('show'); // Hide text of non-active images
+        }
+    }
+}
+
+// Helper function to hide all buttons
+function hideAllButtons() {
+    for (let i = 1; i <= 9; i++) {
+        let button = document.getElementById(`toggleButton${i}`);
+        button.style.display = 'none'; // Hide all buttons
+    }
+}
+
+// Helper function to show all buttons
+function showAllButtons() {
+    for (let i = 1; i <= 9; i++) {
+        let button = document.getElementById(`toggleButton${i}`);
+        button.style.display = 'block'; // Show all buttons
+    }
+}
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
